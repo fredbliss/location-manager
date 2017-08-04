@@ -1,7 +1,20 @@
-<h1>{{ title }}</h1>
-
-<!-- this creates a google map on the page with the given lat/lng from -->
-<!-- the component as the initial center of the map: -->
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
+<div class="row">
+  <div class="col-xs-12 col-md-9">
+    <agm-map [latitude]="lat" [longitude]="lng">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+  </div>
+  <div class="col-xs-12 col-md-3" *ngIf="locations.length">
+    <div class="row">
+      <div class="col-xs-12">
+        <location *ngFor="let location of locations" [location]="location"></location>
+      </div>
+    </div>
+    <div class="row" *ngIf="!locations.length">
+      <div class="col-xs-12 no-results text-center">
+        <br /><br />
+        <h3>No locations found. Please try again.</h3>
+      </div>
+    </div>
+  </div>
+</div>

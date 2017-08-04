@@ -8,12 +8,18 @@ import { AppComponent } from './app.component';
 
 import { AgmCoreModule } from '@agm/core';
 import { MainComponent } from './main/main.component';
+import { googleMapsConfig } from '../../src/environments/environment';
+import { LocationsService } from './shared/services/locations.service';
+import { ZoneObservableService } from './shared/services/zone-observable.service';
+
 import routes from './app.routes';
+import { LocationComponent } from './location/location.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +28,7 @@ import routes from './app.routes';
     HttpModule,
     RouterModule.forRoot(routes, { useHash: true }),
     AgmCoreModule.forRoot({
-        apiKey: 'AIzaSyBjno8dTZAZbn7G29-1ls3XLhTANzh1fu4'
+        apiKey: googleMapsConfig.apiKey
     })
   ],
   providers: [],
