@@ -8,9 +8,9 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 })
 export class MainComponent implements OnInit {
 
-  lat: number = 42.5820633;
-  lng: number = -72.6240396;
-  title: string = 'Locators.io Location Manager';
+  lat: 42.5820633;
+  lng: -72.6240396;
+  title: 'Locators.io Location Manager';
 
   constructor() { }
 

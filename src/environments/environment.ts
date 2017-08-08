@@ -6,9 +6,14 @@
 import 'zone.js/dist/zone';
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: 'http://localhost:4200/'
 };
 
 export const googleMapsConfig = {
     apiKey: 'AIzaSyBjno8dTZAZbn7G29-1ls3XLhTANzh1fu4'
+};
+
+export const settings = {
+    placeholderImage: 'assets/images/placeholder.jpg'
 };
