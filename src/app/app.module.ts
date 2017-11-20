@@ -1,37 +1,40 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-
-import { AgmCoreModule } from '@agm/core';
 import { MainComponent } from './main/main.component';
 import { googleMapsConfig } from '../../src/environments/environment';
-import { LocationsService } from './shared/services/locations.service';
-import { ZoneObservableService } from './shared/services/zone-observable.service';
+import { AgmCoreModule } from "@agm/core";
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+import { HttpClientModule } from "@angular/common/http";
 
-import routes from './app.routes';
 import { LocationComponent } from './location/location.component';
+import { PdfComponent } from './pdf/pdf.component';
+
+export const ROUTES: Routes = [
+    {path: '', redirectTo: 'locations', pathMatch: 'full'},
+    {path: 'locations', component: MainComponent},
+    {path: 'locations/:id', component: LocationComponent},
+    {path: '**', component: MainComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    LocationComponent
+    LocationComponent,
+    PdfComponent
   ],
   imports: [
     BrowserModule,
-    CommonModule,
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot(routes, { useHash: true }),
+    HttpClientModule,
+    RouterModule.forRoot(ROUTES, { enableTracing: true}),
     AgmCoreModule.forRoot({
         apiKey: googleMapsConfig.apiKey
-    })
+    }),
+    AgmSnazzyInfoWindowModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

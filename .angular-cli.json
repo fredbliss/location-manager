@@ -7,6 +7,7 @@
     {
       "root": "src",
       "outDir": "dist",
+      "deployUrl" : "/assets/location-manager/",
       "assets": [
         "assets",
         "favicon.ico"
@@ -19,13 +20,15 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/snazzy-info-window/dist/snazzy-info-window.css"
       ],
-      "scripts": [],
+      "scripts": [ "../node_modules/jspdf/dist/jspdf.min.js" ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
+        "prod": "environments/environment.prod.ts",
+        "staging": "environments/environment.staging.ts"
       }
     }
   ],

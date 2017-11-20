@@ -1,20 +1,24 @@
-<div class="row">
-  <div class="col-xs-12 col-md-9">
-    <agm-map [latitude]="lat" [longitude]="lng">
-      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-    </agm-map>
-  </div>
-  <div class="col-xs-12 col-md-3" *ngIf="locations.length">
-    <div class="row">
-      <div class="col-xs-12">
-        <location *ngFor="let location of locations" [location]="location"></location>
-      </div>
-    </div>
-    <div class="row" *ngIf="!locations.length">
-      <div class="col-xs-12 no-results text-center">
-        <br /><br />
-        <h3>No locations found. Please try again.</h3>
-      </div>
-    </div>
-  </div>
+<div class="app">
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10" [mapTypeId]="'roadmap'" [styles]="mapstyle">
+    <agm-marker
+            [iconUrl]="placemarkerImage"
+            [latitude]="location.position.lat"
+            [longitude]="location.position.lng"
+            *ngFor="let location of locations"
+            (markerClick)="markerClick(location.id)"
+    >
+      <agm-snazzy-info-window [maxWidth]="350" [maxHeight]="350" [closeWhenOthersOpen]="true">
+        <ng-template>
+          City: {{location.city}}<br>
+          Billboard ID: {{location.billboard_id}}<br>
+          Location: {{location.location}}<br>
+          Orientation: {{location.orientation}}<br>
+          Size: {{location.size}}<br>
+          County: {{location.county}}<br>
+          Highway: {{location.highway}}<br>
+          <a href="{{apibase}}/locations/{{location.id}}/pdf">More Information</a><br>
+        </ng-template>
+      </agm-snazzy-info-window>
+    </agm-marker>
+  </agm-map>
 </div>

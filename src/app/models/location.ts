@@ -2,9 +2,11 @@ import { Model } from './model';
 import { environment } from '../../../src/environments/environment';
 import { settings } from '../../../src/environments/environment';
 
+const { domain, assetsUrl } = environment;
+
 export class Location extends Model {
 
-    static readonly DEFAULT_IMAGE: string = `${environment.baseUrl}/${settings.placeholderImage}`;
+    static readonly DEFAULT_IMAGE: string = `${domain}${assetsUrl}/${settings.placeholderImage}`;
 
     id: string;
     billboard_id: number;
@@ -16,7 +18,7 @@ export class Location extends Model {
     size: string;
     faces: number;
     orientation: string;
-    illumination: boolean;
+    illumination: string;
     structure_type: string;
     traffic_counts: number;
     images: string[];

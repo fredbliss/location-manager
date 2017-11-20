@@ -1,12 +1,12 @@
-import {LocationsService} from './locations.service';
+import {LocationService} from './location.service';
 import {ZoneObservableService} from './zone-observable.service';
 
 export default [
-    LocationsService,
+    LocationService,
     ZoneObservableService
 ];
 
 export {
-    LocationsService,
+    LocationService,
     ZoneObservableService
 };
