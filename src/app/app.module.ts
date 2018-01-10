@@ -10,6 +10,8 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { LocationComponent } from './location/location.component';
 import { PdfComponent } from './pdf/pdf.component';
+import { LocationListingComponent } from './location-listing/location-listing.component';
+import { LocationDetailComponent } from './location-detail/location-detail.component';
 
 export const ROUTES: Routes = [
     {path: '', redirectTo: 'locations', pathMatch: 'full'},
@@ -23,7 +25,9 @@ export const ROUTES: Routes = [
     AppComponent,
     MainComponent,
     LocationComponent,
-    PdfComponent
+    PdfComponent,
+    LocationListingComponent,
+    LocationDetailComponent
   ],
   imports: [
     BrowserModule,

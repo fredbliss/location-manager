@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationService } from "../shared/services/location.service";
-import { environment} from "../../environments/environment";
+import { environment } from "../../environments/environment";
 
 const { domain, apiUrl, assetsUrl } = environment;
 
@@ -20,7 +20,7 @@ export class MainComponent implements OnInit {
     apibase = apiUrl;
 
     constructor(private _locationService: LocationService) {
-        this.mapstyle = [
+        /*this.mapstyle = [
             {
                 "elementType": "geometry",
                 "stylers": [
@@ -269,7 +269,7 @@ export class MainComponent implements OnInit {
                     }
                 ]
             }
-        ];
+        ];*/
     }
 
     ngOnInit() {

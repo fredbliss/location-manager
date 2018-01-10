@@ -1,12 +1,12 @@
 import { Model } from './model';
 import { environment } from '../../../src/environments/environment';
-import { settings } from '../../../src/environments/environment';
+import { generalSettings } from '../../../src/environments/environment';
 
 const { domain, assetsUrl } = environment;
 
 export class Location extends Model {
 
-    static readonly DEFAULT_IMAGE: string = `${domain}${assetsUrl}/${settings.placeholderImage}`;
+    static readonly DEFAULT_IMAGE: string = `${domain}${assetsUrl}/${generalSettings.placeholderImage}`;
 
     id: string;
     billboard_id: number;

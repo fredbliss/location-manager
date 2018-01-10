@@ -18,7 +18,7 @@ export const googleMapsConfig = {
     apiKey: 'AIzaSyBjno8dTZAZbn7G29-1ls3XLhTANzh1fu4'
 };
 
-export const settings = {
+export const generalSettings = {
     placeholderImage: 'assets/images/placeholder.jpg'
 };
 

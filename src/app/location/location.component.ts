@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import { LocationService } from "../shared/services/location.service";
 
 @Component({
-  selector: 'app-location',
+  selector: 'lm-location',
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.css'],
     providers: [ LocationService ]

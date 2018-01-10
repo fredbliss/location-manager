@@ -1,10 +1,11 @@
-<div class="app">
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10" [mapTypeId]="'roadmap'" [styles]="mapstyle">
+<div class="location-detail">
+  <h1>Billboard Details</h1>
+  <h2>{{location.billboard_id}}</h2>
+  <agm-map [latitude]="location.position.lat" [longitude]="location.position.lng" [zoom]="10" [mapTypeId]="'roadmap'" [styles]="mapstyle">
     <agm-marker
             [iconUrl]="placemarkerImage"
             [latitude]="location.position.lat"
             [longitude]="location.position.lng"
-            *ngFor="let location of locations"
             (markerClick)="markerClick(location.id)"
     >
       <agm-snazzy-info-window [maxWidth]="350" [maxHeight]="350" [closeWhenOthersOpen]="true">
@@ -16,7 +17,7 @@
           Size: {{location.size}}<br>
           County: {{location.county}}<br>
           Highway: {{location.highway}}<br>
-          <span *ngFor="let direction of location.directions" ><a href="{{apibase}}/locations/{{direction.id}}" target="_blank">{{direction.facing}}</a><br></span>
+          <a href="{{apibase}}/locations/{{location.id}}/pdf" target="_blank">More Information</a><br>
         </ng-template>
       </agm-snazzy-info-window>
     </agm-marker>
