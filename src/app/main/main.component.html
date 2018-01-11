@@ -16,7 +16,7 @@
           Size: {{location.size}}<br>
           County: {{location.county}}<br>
           Highway: {{location.highway}}<br>
-          <span *ngFor="let direction of location.directions" ><a href="{{apibase}}/locations/{{direction.id}}" target="_blank">{{direction.facing}}</a><br></span>
+          <span *ngFor="let direction of location.directions" ><a href="{{apibase}}/locations/{{direction.id}}" target="_blank">{{direction.facing | capitalize}}</a><br></span>
         </ng-template>
       </agm-snazzy-info-window>
     </agm-marker>
