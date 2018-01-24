@@ -1,26 +1,19 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { LocationService } from "../shared/services/location.service";
+import { Location } from "../models";
 
 @Component({
-  selector: 'lm-location',
+  selector: 'location',
   templateUrl: './location.component.html',
-  styleUrls: ['./location.component.css'],
-    providers: [ LocationService ]
+  styleUrls: ['./location.component.css']
 })
 export class LocationComponent implements OnInit {
 
-  @Input() id: number;
+  @Input() location: Location;
 
-  location = {};
-
-  constructor(private _locationService: LocationService) { }
+  constructor() { }
 
     ngOnInit() {
-        this._locationService.getLocation(this.id).subscribe(
-            data => {
-                this.location = data;
-            }
-        );
+
     }
 
 }

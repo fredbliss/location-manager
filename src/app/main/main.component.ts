@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationService } from "../shared/services/location.service";
 import { environment } from "../../environments/environment";
+import { Location } from "../models";
+import { trigger,state,style,transition,animate,keyframes } from '@angular/animations';
 
 const { domain, apiUrl, assetsUrl } = environment;
 
@@ -8,16 +10,31 @@ const { domain, apiUrl, assetsUrl } = environment;
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css'],
-  providers: [ LocationService ]
+  providers: [ LocationService ],
+  animations: [
+	  trigger('slideInOut', [
+		  state('in', style({
+			  transform: 'translate3d(0, 0, 0)'
+		  })),
+		  state('out', style({
+			  transform: 'translate3d(100%, 0, 0)'
+		  })),
+		  transition('in => out', animate('100ms ease-in-out')),
+		  transition('out => in', animate('100ms ease-in-out'))
+      ])
+  ]
 })
+
 export class MainComponent implements OnInit {
 
-    locations = [];
+    locations: Location[];
     mapstyle = [];
     lat = 34.8930707;
     lng = -84.2619317;
     title: 'Location Manager';
     apibase = apiUrl;
+    selectedlocation: Location;
+	sliderState:string = 'out';
 
     constructor(private _locationService: LocationService) {
         /*this.mapstyle = [
@@ -280,7 +297,17 @@ export class MainComponent implements OnInit {
         );
     }
 
-    markerClick(id) {
+	toggleMenu() {
+		this.sliderState = this.sliderState === 'out' ? 'in' : 'out';
+	}
 
+    loadInfoPanel(location: Location) {
+
+    	if(this.sliderState === 'in') {
+		    this.toggleMenu();  //shut it down THEN
+	    }
+
+	    this.selectedlocation = location;
+	    this.toggleMenu();
     }
 }

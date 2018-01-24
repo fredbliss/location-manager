@@ -1,26 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LocationService } from "../shared/services/location.service";
 
 @Component({
-  selector: 'lm-location-listing',
+  selector: 'location-listing',
   templateUrl: './location-listing.component.html',
   styleUrls: ['./location-listing.component.css'],
   providers: [ LocationService ]
 })
 export class LocationListingComponent implements OnInit {
 
-  locations = [];
+  @Input() locations: Location[];
 
   constructor(private _locationService: LocationService) {
 
   }
 
   ngOnInit() {
-	  this._locationService.getLocations().subscribe(
-		  data => {
-			  this.locations = data;
-		  }
-	  );
+
   }
 
 }

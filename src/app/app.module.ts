@@ -7,6 +7,7 @@ import { googleMapsConfig } from '../../src/environments/environment';
 import { AgmCoreModule } from "@agm/core";
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LocationComponent } from './location/location.component';
 import { PdfComponent } from './pdf/pdf.component';
@@ -38,7 +39,8 @@ export const ROUTES: Routes = [
     AgmCoreModule.forRoot({
         apiKey: googleMapsConfig.apiKey
     }),
-    AgmSnazzyInfoWindowModule
+    AgmSnazzyInfoWindowModule,
+	BrowserAnimationsModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
