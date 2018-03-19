@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LocationService } from "../shared/services/location.service";
+
+import { Location } from "../models";
 
 @Component({
   selector: 'location-listing',
@@ -9,14 +11,18 @@ import { LocationService } from "../shared/services/location.service";
 })
 export class LocationListingComponent implements OnInit {
 
-  @Input() locations: Location[];
+  locations: Location[];
 
   constructor(private _locationService: LocationService) {
 
   }
 
-  ngOnInit() {
-
-  }
+	ngOnInit() {
+		this._locationService.getLocations().subscribe(
+			data => {
+				this.locations = data;
+			}
+		);
+	}
 
 }

@@ -1,5 +1,6 @@
 <div class="location_listing">
   <location
-          *ngFor="let location of locations" location="location"
-    ></location>
+          *ngFor="let location of locations" [location]="location"
+    >
+  </location>
 </div>
