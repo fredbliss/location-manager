@@ -1,6 +1,6 @@
 <div class="app">
   <div class="row">
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10" [mapTypeId]="'roadmap'" [styles]="mapstyle">
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10" [mapTypeId]="'roadmap'" [styles]="mapstyle" [zoomControl]="true" [fullscreenControl]="true">
     <agm-marker
             [iconUrl]="placemarkerImage"
             [latitude]="location.position.lat"
